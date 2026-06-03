@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Sarabun:wght@300;400;600;700&family=Share+Tech+Mono&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-arcade: 'Press Start 2P';
+  --font-thai:   'Sarabun';
+  --font-mono:   'Share Tech Mono';
+
+  --neon-cyan:   #00f5ff;
+  --neon-pink:   #ff0090;
+  --neon-gold:   #ffd700;
+  --neon-green:  #39ff14;
+  --neon-purple: #bf00ff;
+
+  --bg-900: #020408;
+  --bg-800: #060d14;
+  --bg-700: #0a1628;
+  --bg-600: #0f2040;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  background-color: var(--bg-900);
+  color: #e0f0ff;
+  font-family: var(--font-thai), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: var(--bg-800); }
+::-webkit-scrollbar-thumb  { background: var(--neon-cyan); border-radius: 3px; }
+
+/* CRT scanline overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.08) 0px,
+    rgba(0, 0, 0, 0.08) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Neon text helpers */
+.neon-text-cyan   { color: var(--neon-cyan);   text-shadow: 0 0 10px var(--neon-cyan),   0 0 30px var(--neon-cyan); }
+.neon-text-pink   { color: var(--neon-pink);   text-shadow: 0 0 10px var(--neon-pink),   0 0 30px var(--neon-pink); }
+.neon-text-gold   { color: var(--neon-gold);   text-shadow: 0 0 10px var(--neon-gold),   0 0 30px var(--neon-gold); }
+.neon-text-green  { color: var(--neon-green);  text-shadow: 0 0 10px var(--neon-green),  0 0 30px var(--neon-green); }
+.neon-text-purple { color: var(--neon-purple); text-shadow: 0 0 10px var(--neon-purple), 0 0 30px var(--neon-purple); }
+
+/* Neon border helpers */
+.neon-border-cyan   { border-color: var(--neon-cyan);   box-shadow: 0 0 8px var(--neon-cyan),   inset 0 0 8px rgba(0,245,255,0.05); }
+.neon-border-pink   { border-color: var(--neon-pink);   box-shadow: 0 0 8px var(--neon-pink),   inset 0 0 8px rgba(255,0,144,0.05); }
+.neon-border-gold   { border-color: var(--neon-gold);   box-shadow: 0 0 8px var(--neon-gold),   inset 0 0 8px rgba(255,215,0,0.05); }
+
+/* Glass card */
+.glass-card {
+  background: rgba(6, 13, 20, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  border-radius: 12px;
+}
+
+/* Button reset */
+button { cursor: pointer; }
+
+/* Pixel font */
+.font-arcade { font-family: var(--font-arcade); }
+.font-thai   { font-family: var(--font-thai); }
+.font-mono   { font-family: var(--font-mono); }
